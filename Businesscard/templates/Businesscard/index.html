@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Business Card Management</title>
+</head>
+<body>
+    <h1>Business Card Management</h1>
+    <div>
+        <table border="1">
+            <tr>
+                <td>회사명</td>
+                <td>{{ data.company_name }}</td>
+                <td>직급</td>
+                <td>{{ data.position }}</td>
+                <td>이름</td>
+                <td>{{ data.name }}</td>
+            </tr>
+            <tr>
+                <td rowspan="3">회사주소</td>
+                <td rowspan="3">{{ data.company_addr }}</td>
+                <td>전화번호</td>
+                <td>{{ data.mobile }}</td>
+            </tr>
+            <tr>
+                <td>이메일</td>
+                <td>{{ data.email }}</td>
+            </tr>
+            <tr>
+                <td>사이트 주소</td>
+                <td>{{ data.site_addr }}</td>
+            </tr>
+        </table>
+        <br>
+        <div>
+            <button onclick="location.href='/bc/create/'">명함 등록하러 가기</button>
+            <button onclick="location.href='/bc/list/'">목록</button>
+        </div>
+    </div>
+</body>
+</html>

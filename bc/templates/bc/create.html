@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>명함 정보 입력</title>
+</head>
+<body>
+    <h1>명함 등록하기</h1>
+    <form action="/bc/create/" method="POST">{% csrf_token %}
+        <table border="1">
+            <tr>
+                <td>회사명</td>
+                <td><input type="text" name="company_name" size="30%" placeholder="삼성전자"></td>
+                <td>직급</td>
+                <td><input type="text" name="position" placeholder="부회장" size="30%"></td>
+                <td>이름</td>
+                <td><input type="text" name="name" placeholder="이재용"></td>
+            </tr>
+            <tr>
+                <td rowspan="3">회사주소</td>
+                <td rowspan="3"><input type="text" name="company_addr" size="30%" placeholder="서울시 서초구"></td>
+                <td>전화번호</td>
+                <td><input type="text" name="mobile" size="30%" placeholder="010-1111-2222"></td>
+            </tr>
+            <tr>
+                <td>이메일</td>
+                <td><input type="email" name="email" size="30%" placeholder="abc@google.com"></td>
+            </tr>
+            <tr>
+                <td>사이트 주소</td>
+                <td><input type="url" name="site_addr" size="30%" placeholder="www.samsung.co.kr"></td>
+            </tr>
+        </table>
+        <br>
+        <button type="submit">명함 등록</button>
+        <button type="button" onclick="location.href='/'">취소</button>
+    </form>
+</body>
+</html>

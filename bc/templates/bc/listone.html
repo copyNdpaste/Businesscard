@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td>회사명</td>
+            <td>{{ datas.company_name }}</td>
+            <td>직급</td>
+            <td>{{ datas.position }}</td>
+            <td>이름</td>
+            <td>{{ datas.name }}</td>
+        </tr>
+        <tr>
+            <td rowspan="3">회사주소</td>
+            <td rowspan="3">{{ datas.company_addr }}</td>
+            <td>전화번호</td>
+            <td>{{ datas.mobile }}</td>
+        </tr>
+        <tr>
+            <td>이메일</td>
+            <td>{{ datas.email }}</td>
+        </tr>
+        <tr>
+            <td>사이트 주소</td>
+            <td>{{ datas.site_addr }}</td>
+            <td><button type="button" onclick="location.href='/bc/list/update/?id={{ datas.id }}'">수정</button></td>
+            <td><button type="button" onclick="location.href='/bc/list/delete/?id={{ datas.id }}'">삭제</button></td>
+        </tr>
+    </table>
+    <br> 
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Update</h1>
+    <form action="/bc/list/update/" method="POST">{% csrf_token %}
+    <table border="1">
+        <tr>
+            <td>회사명</td>
+            <td><input type="text" name="company_name" value="{{ data.company_name }}"></td>
+            <td>직급</td>
+            <td><input type="text" name="position" value="{{ data.position }}"></td>
+            <td>이름</td>
+            <td><input type="text" name="name" value="{{ data.name }}"></td>
+        </tr>
+        <tr>
+            <td rowspan="3">회사주소</td>
+            <td rowspan="3"><input type="text" name="company_addr" value="{{ data.company_addr }}"></td>
+            <td>전화번호</td>
+            <td><input type="text" name="mobile" value="{{ data.mobile }}"></td>
+        </tr>
+        <tr>
+            <td>이메일</td>
+            <td><input type="email" name="email" value="{{ data.email }}"></td>
+        </tr>
+        <tr>
+            <td>사이트 주소</td>
+            <td><input type="text" name="site_addr" value="{{ data.site_addr }}"></td>
+            <td><button type="submit">수정하기</button></td>
+            <td><button type="button" onclick="location.href='/bc/list/'">목록</button></td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>명함 목록</title>
+</head>
+<body>
+    <h1>명함 목록</h1>
+    <form action="search/" method="GET">
+        <select name="search" id="search">
+            <option value="company_name">회사명</option>
+            <option value="position">직급</option>
+            <option value="name">이름</option>
+            <option value="company_addr">회사주소</option>
+            <option value="mobile">전화번호</option>
+            <option value="email">이메일</option>
+            <option value="site_addr">사이트주소</option>
+        </select>
+        <input type="text" name="info" placeholder="검색어"><button type="submit">검색</button>
+    </form>
+    <br>
+    {% for row in datas %}
+    <table border="1">
+        <tr>
+            <td>회사명</td>
+            <td>{{ row.company_name }}</td>
+            <td>직급</td>
+            <td>{{ row.position }}</td>
+            <td>이름</td>
+            <td>{{ row.name }}</td>
+        </tr>
+        <tr>
+            <td rowspan="3">회사주소</td>
+            <td rowspan="3">{{ row.company_addr }}</td>
+            <td>전화번호</td>
+            <td>{{ row.mobile }}</td>
+        </tr>
+        <tr>
+            <td>이메일</td>
+            <td>{{ row.email }}</td>
+        </tr>
+        <tr>
+            <td>사이트 주소</td>
+            <td>{{ row.site_addr }}</td>
+            <td><button type="button" onclick="location.href='/bc/list/update/?id={{ row.id }}'">수정</button></td>
+            <td><button type="button" onclick="location.href='/bc/list/delete/?id={{ row.id }}'">삭제</button></td>
+        </tr>
+    </table>
+    <br>
+    {% endfor %}
+    <button onclick="location.href='/'">메인 페이지</button>
+</body>
+</html>
