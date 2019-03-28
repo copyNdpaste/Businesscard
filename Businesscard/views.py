@@ -2,9 +2,9 @@ from django.shortcuts import render
 from bc.models import Businesscard
 
 def index(request):
-    data = Businesscard.objects.get(id=9)
+    datas = Businesscard.objects.all()
     context = {
-        'data': data,
+        'datas': datas,
     }
 
     return render(request, 'Businesscard/index.html', context)

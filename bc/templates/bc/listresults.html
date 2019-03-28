@@ -7,32 +7,34 @@
     <title>Document</title>
 </head>
 <body>
+    {% for data in datas %}
     <table border="1">
         <tr>
             <td>회사명</td>
-            <td>{{ datas.company_name }}</td>
+            <td>{{ data.company_name }}</td>
             <td>직급</td>
-            <td>{{ datas.position }}</td>
+            <td>{{ data.position }}</td>
             <td>이름</td>
-            <td>{{ datas.name }}</td>
+            <td>{{ data.name }}</td>
         </tr>
         <tr>
             <td rowspan="3">회사주소</td>
-            <td rowspan="3">{{ datas.company_addr }}</td>
+            <td rowspan="3">{{ data.company_addr }}</td>
             <td>전화번호</td>
-            <td>{{ datas.mobile }}</td>
+            <td>{{ data.mobile }}</td>
         </tr>
         <tr>
             <td>이메일</td>
-            <td>{{ datas.email }}</td>
+            <td>{{ data.email }}</td>
         </tr>
         <tr>
             <td>사이트 주소</td>
-            <td>{{ datas.site_addr }}</td>
-            <td><button type="button" onclick="location.href='/bc/list/update/?id={{ datas.id }}'">수정</button></td>
-            <td><button type="button" onclick="location.href='/bc/list/delete/?id={{ datas.id }}'">삭제</button></td>
+            <td>{{ data.site_addr }}</td>
+            <td><button type="button" onclick="location.href='/bc/list/update/?id={{ data.id }}'">수정</button></td>
+            <td><button type="button" onclick="location.href='/bc/list/delete/?id={{ data.id }}'">삭제</button></td>
         </tr>
     </table>
+    {% endfor %}
     <br> 
 </body>
 </html>

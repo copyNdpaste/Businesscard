@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from bc.models import Businesscard
+from django.db.models import Q
 
 # Create your views here.
 def create(request):
@@ -69,24 +70,19 @@ def delete(request):
     return render(request, 'bc/list.html', context)
 
 def search(request):
-    srch = request.GET.get('search')
     info = request.GET.get('info')
-    if srch == 'company_name':
-        datas = Businesscard.objects.get(company_name=info)
-    elif srch == 'position':
-        datas = Businesscard.objects.get(position=info)
-    elif srch == 'name':
-        datas = Businesscard.objects.get(name=info)
-    elif srch == 'company_addr':
-        datas = Businesscard.objects.get(company_addr=info)
-    elif srch == 'mobile':
-        datas = Businesscard.objects.get(mobile=info)
-    elif srch == 'email':
-        datas = Businesscard.objects.get(email=info)
-    elif srch == 'site_addr':
-        datas = Businesscard.objects.get(site_addr=info)
-        
+
+    datas = Businesscard.objects.filter(
+            Q(company_name__icontains=info) |
+            Q(position__icontains=info) |
+            Q(company_name__icontains=info) |
+            Q(company_addr__icontains=info) |
+            Q(mobile__icontains=info) |
+            Q(email__icontains=info) |
+            Q(site_addr__icontains=info)
+        ).distinct()
+
     context = {
         'datas': datas
     }
-    return render(request, 'bc/listone.html', context)
+    return render(request, 'bc/listresults.html', context)
