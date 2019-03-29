@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from bc.models import Businesscard
 from django.db.models import Q
+from bc.forms import HTMLForm
 
 # Create your views here.
 def create(request):
@@ -28,8 +29,10 @@ def create(request):
         
 def list(request):
     datas = Businesscard.objects.all()
+    form = HTMLForm()
     context = {
-        'datas': datas
+        'datas': datas,
+        'form': form,
     }
     return render(request, 'bc/list.html', context)
 

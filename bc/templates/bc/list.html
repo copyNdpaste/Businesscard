@@ -42,5 +42,35 @@
     <br>
     {% endfor %}
     <button onclick="location.href='/'">메인 페이지</button>
+<!--<div>
+        {{ form.as_p }}
+        {{ form.as_ul }}
+    </div>-->
+    <table>
+        {{ form.as_table }}
+    </table>
+    <table>
+        <div>
+            {{ form.text }}
+        </div>
+        <div>
+            {{ form.number }}
+        </div>
+        <div>
+            {{ form.check }}
+        </div>
+        <div>
+            {{ form.choice}}
+        </div>
+        <div>
+            {{ form.password }}
+        </div>
+        <div>
+            {{ form.hidden }}
+        </div>
+        <div>
+            {{ form.textarea }}
+        </div>
+    </table>
 </body>
 </html>
